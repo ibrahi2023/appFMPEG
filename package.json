@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "server": "nodemon app.js",
+    "Rstp": "nodemon rstp.js",
     "dev": "npm run server",
     "tailwind:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css"
   },
