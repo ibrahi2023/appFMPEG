@@ -1,0 +1,41 @@
+{
+	"folders": [
+		{
+			"path": "C:/Users/hp/Documents/GitHub/myapp"
+		},
+		{
+			"path": "../../../lib"
+		},
+		{
+			"path": "../.."
+		},
+		{
+			"path": "../../images"
+		},
+		{
+			"path": "../../IPCameraBridge"
+		},
+		{
+			"path": "../../javascripts"
+		},
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../recording"
+		},
+		{
+			"path": "../../stylesheets"
+		},
+		{
+			"path": "../../../routes"
+		},
+		{
+			"path": "../../../uploads"
+		},
+		{
+			"path": "../../../views"
+		}
+	],
+	"settings": {}
+}
