@@ -15,7 +15,7 @@
     </a>
     <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
       <div class="flex flex-col center justify-center h-2 w-20 border-t border-gray-700 pt-10">
-        <h5 class="mt-48 ml-2">Scale@</h5>
+        <h5 style="margin-top: 270px;" class="ml-2">Scale@</h5>
         <form action="/scaleAuto" method="get"   class="ml-1 mt-0  flex-col bg">
           <input type="text" name="user" value="<%= user %>" hidden>
           <button   style="width: 70px;" type="submit" class="py-4 bg-gray-700 border border-gray-700  shadow-xl rounded-md px-1 hover:bg-gray-500 focus:bg-orange-500 ">
@@ -41,6 +41,12 @@
           <span class="font-thin text-orange-100">1190:1080</span> 
           </button>
        </form>
+       <div class="ml-1 mt-2  flex-col bg">
+        <div style="width: 70px;"  class="py-4 bg-orange-300 border border-orange-300  shadow-xl rounded-md px-1 hover:bg-gray-300 focus:bg-orange-300 "     class="font-extralight text-orange-300 py-0 px-2 mb-1 border border-orange-300  hover:bg-orange-100 rounded-md flex h-6 w-28">
+         <a href=""  id="dowloadurl" onclick="downloadlink();"><img  class="ml-4"   src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gU3ZnIFZlY3RvciBJY29ucyA6IGh0dHA6Ly93d3cub25saW5ld2ViZm9udHMuY29tL2ljb24gLS0+DQo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMjU2IDI1NiIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8bWV0YWRhdGE+IFN2ZyBWZWN0b3IgSWNvbnMgOiBodHRwOi8vd3d3Lm9ubGluZXdlYmZvbnRzLmNvbS9pY29uIDwvbWV0YWRhdGE+DQo8Zz48Zz48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTM1LjksMjMwVjExMi44SDEyOFYyMzBsLTI4LjMtMzFsLTUuNiw2LjFsMzcuOSw0MS4zbDM3LjgtNDEuM2wtNS42LTYuMUwxMzUuOSwyMzB6Ii8+PHBhdGggZmlsbD0iIzAwMDAwMCIgZD0iTTIwMi44LDc4LjJjMC0wLjcsMC4xLTEuMywwLjEtMmMwLTM2LjgtMjcuMy02Ni42LTYxLTY2LjZjLTI0LjMsMC00NS4yLDE1LjUtNTUsMzhjLTQuMi0yLjMtOS0zLjctMTQuMS0zLjdjLTE1LjYsMC0yOC41LDEyLjQtMzEsMjguNkMyMy40LDc5LjQsMTAsOTguNiwxMCwxMjEuMmMwLDI4LjUsMjEuMSw1MS42LDQ3LjIsNTEuNmg0Ny4ydi04LjZINTcuMmMtMjEuNywwLTM5LjMtMTkuMy0zOS4zLTQzYzAtMTguNCwxMC43LTM0LjcsMjYuNi00MC42bDQuNC0xLjdsMC44LTVjMS45LTEyLjQsMTEuNy0yMS41LDIzLjItMjEuNWMzLjcsMCw3LjIsMC45LDEwLjUsMi44bDcuMiwzLjlsMy41LTcuOWM4LjgtMjAuMSwyNy42LTMzLjEsNDcuOS0zMy4xYzI5LjMsMCw1My4xLDI2LDUzLjEsNThjMCwwLjIsMCwwLjQsMCwwLjVjMCwwLjQsMCwwLjksMCwxLjNsLTAuMiw4LjhsOCwwYzE5LjUsMCwzNS4zLDE3LjQsMzUuMywzOC43YzAsMjEuMi0xNS44LDM4LjYtMzUuMiwzOC43aC0xLjdoLTQxLjd2OC42aDQzLjVsMCwwYzIzLjgtMC4xLDQzLjEtMjEuMiw0My4xLTQ3LjJDMjQ2LDk5LjUsMjI2LjcsNzguMywyMDIuOCw3OC4yeiIvPjwvZz48L2c+DQo8L3N2Zz4=" width="28" height="28"></a>
+         </div>
+      </div>
+   
     </div>
     </div>
   </aside>
@@ -101,4 +107,12 @@
    </body>
    <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script>
   <script src="/javascripts/dash.all.min.js"></script>
+  <script>
+    function downloadlink(){
+    const link="/downloadVideo";
+  console.log(link);
+  document.getElementById(`dowloadurl`).href=link;
+    }
+  </script>
+ 
   </html>

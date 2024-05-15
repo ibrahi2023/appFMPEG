@@ -33,7 +33,13 @@ app.get("/scal256@144",(req,res)=>{
   app.get("/scaleAuto",(req,res)=>{
     res.render("scalMPD/scaleAuto",{message:"",user:"admin"});
   });
-  
+  app.get("/downloadVideo",(req,res)=>{
+    const filelink="public/output/autoscale/Dolphin.mpd"
+    res.download(filelink,(error)=>{
+   //   console.log(error)
+    })  
+  })
+ 
     
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
