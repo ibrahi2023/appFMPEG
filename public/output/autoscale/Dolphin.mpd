@@ -19,18 +19,6 @@
    <Representation id="4" mimeType="video/mp4" codecs="hvc1.1.6.L93.90" width="1280" height="720" frameRate="24000/999" sar="1:1" bandwidth="2320624">
     <SegmentTemplate media="720p-2350k-$Number$.m4s" initialization="720p-2350k-init.mp4" timescale="24000" startNumber="1" duration="96000"/>
    </Representation>
-   <Representation id="5" mimeType="video/mp4" codecs="hvc1.1.6.L93.90" width="1280" height="720" frameRate="24000/999" sar="1:1" bandwidth="2965128">
-    <SegmentTemplate media="720p-3000k-$Number$.m4s" initialization="720p-3000k-init.mp4" timescale="24000" startNumber="1" duration="96000"/>
-   </Representation>
-   <Representation id="6" mimeType="video/mp4" codecs="hvc1.1.6.L120.90" width="1920" height="1080" frameRate="24000/999" sar="1:1" bandwidth="3832752">
-    <SegmentTemplate media="1080p-3850k-$Number$.m4s" initialization="1080p-3850k-init.mp4" timescale="24000" startNumber="1" duration="96000"/>
-   </Representation>
-   <Representation id="7" mimeType="video/mp4" codecs="hvc1.1.6.L120.90" width="1920" height="1080" frameRate="24000/999" sar="1:1" bandwidth="4260912">
-    <SegmentTemplate media="1080p-4300k-$Number$.m4s" initialization="1080p-4300k-init.mp4" timescale="24000" startNumber="1" duration="96000"/>
-   </Representation>
-   <Representation id="8" mimeType="video/mp4" codecs="hvc1.1.6.L153.90" width="1920" height="1080" frameRate="24000/999" sar="1:1" bandwidth="14943528">
-    <SegmentTemplate media="1080p-15000k-$Number$.m4s" initialization="1080p-15000k-init.mp4" timescale="24000" startNumber="1" duration="96000"/>
-   </Representation>
-  </AdaptationSet>
+     </AdaptationSet>
  </Period>
 </MPD>
