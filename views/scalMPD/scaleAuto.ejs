@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>SCALEAUTO</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <!-- <link href="/stylesheets/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  -->
 </head>
 <body class="flex bg-gray-100 min-h-screen" >
   <aside class="hidden sm:flex sm:flex-col">
@@ -48,6 +50,7 @@
   </aside>
   <div class="flex-grow text-gray-800">
     <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
+      <h3 id="message" ondblclick='ResetMSG()'></h3>
       <button class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
         <span class="sr-only">Menu</span>
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -102,12 +105,12 @@
     </main>
     </div>
    </body>
-      <script src="/javascripts/hls.min.js"></script>
- 
- 
-      <!-- <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script> -->
+    <script src="/javascripts/hls.min.js"></script>
+ <!-- <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script> -->
   <!-- <script src="/javascripts/dash.all.min.js"></script> -->
 <script>
+
+  document.getElementById("message").innerHTML="";
             if (Hls.isSupported()) {
               var video = document.getElementById('video');
               var hls = new Hls();
@@ -116,13 +119,17 @@
             }else{
                 alert("Cannot stream HLS, use another video source");
             }
-
     function downloadlink(){
     const link="/downloadVideo";
-  console.log(link);
+    const link2=" https://raw.githubusercontent.com/ibrahi2023/appFMPEG/main/public/output/autoscale/Dolphin.mpd";
   document.getElementById(`dowloadurl`).href=link;
-    }
+  document.getElementById("message").innerHTML=`<span class="text-orange-500">Copier URL Video:</span><span >${link2}</span>`
  
+    }
+ function ResetMSG(){
+  document.getElementById("message").innerHTML="";
+ 
+ }
     </script>
 </html>
 
