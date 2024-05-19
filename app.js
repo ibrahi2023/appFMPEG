@@ -36,7 +36,7 @@ app.get("/scal256@144",(req,res)=>{
   app.get("/downloadVideo",(req,res)=>{
     const filelink="public/output/autoscale/Dolphin.mpd"
     res.download(filelink,(error)=>{
-      //console.log(error)
+      //console.log(error) 
     })  
   })
  
