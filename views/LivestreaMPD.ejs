@@ -2,48 +2,104 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Live stream MPD</title>
+  <title>SCALE256@144</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body class="flex bg-gray-100 min-h-screen">
   <aside class="hidden sm:flex sm:flex-col">
-    <a href="#" class="inline-flex items-center justify-center h-20 w-20 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500">
+    <a href="#" class="inline-flex items-center justify-self-start h-20 w-48 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500">
       <span class="h-18 w-18  sm:ml-1 mr-2 bg-gray-100 rounded-full overflow-hidden">
-        <img src="/images/ffmpeg.png" alt="user profile photo" class="h-full w-full object-cover">
+        <img src="/images/ffmpeg.png" alt="user profile photo" class="h-20 w-20   object-cover">
     </a>
-    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800">
-      <div class="flex flex-col center justify-center h-2 w-20 border-t border-gray-700 pt-10">
-        <h5 class="mt-32 ml-2">Scale@</h5>
-        <form action="/scaleAuto" method="get"   class="ml-1 mt-12  flex-col bg">
-          <input type="text" name="user"  hidden>
-          <button   style="width: 70px;" type="submit" class="py-4 bg-gray-700 border border-gray-700  shadow-xl rounded-md px-1 hover:bg-gray-500 focus:bg-orange-500 ">
-            <span class="font-thin text-orange-100">Auto</span> 
+    <div class="flex-grow flex flex-col justify-between text-gray-500 bg-gray-800 ">
+      <div style="height: fit-content;" class="flex flex-col center justify-center w-48 border-t border-gray-700 pt-0 pl-1">
+        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">MPEG-DASH ARB</h5>
+        <form action="/scaleAuto" method="post"  class="ml-1 mt-1  flex-col bg">
+          <input type="text" name="user" value="<%= user %>" hidden>
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            MPD: Auto Scale 
            </button>
         </form>
-      
-      <form action="scal256@144" method="get"   class="ml-1 mt-2  flex-col bg">
-        <input type="text" name="user"  hidden>
-        <button   style="width: 70px;" type="submit" class="py-4 bg-gray-700 border border-gray-700  shadow-xl rounded-md px-1 hover:bg-gray-500 focus:bg-orange-500 ">
-          <span class="font-thin text-orange-100">256:144</span> 
-         </button>
-      </form>
-        <form action="scal720@480" method="get"  class="ml-1 mt-2 flex-col bg ">
-          <input type="text" name="user"  hidden>
-          <button  style="width: 70px;" type="submit" class="py-4 bg-gray-700 border border-gray-700 shadow-xl rounded-md px-1 hover:bg-gray-500 focus:bg-orange-500">
-          <span class="font-thin text-orange-100">720:480</span> 
-       </button>
-      </form>
-        <form action="scal1190@1080" method="get"  class="ml-1 mt-2 flex-col bg ">
-          <input type="text" name="user"  hidden>
-          <button  style="width: 70px;" type="submit" class="py-4 bg-gray-700 border border-gray-500 shadow-2xl rounded-md px-1 hover:bg-gray-500 focus:bg-orange-500">
-          <span class="font-thin text-orange-100">1190:1080</span> 
-          </button>
-       </form>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl0" onclick="downloadlink('autoscale','0')" style="width: 170px;"  class="flex py-1 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white bg-green-400">
+            <img id=""  class="flex ml-1 w-6 h-6 mr-2"   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">Download File</span>  
+           </a>
+        </div>
+        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">Main scale Pucture</h5>
+        <div  class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl1" onclick="downloadlink('2sec','1')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 2 Sec</span>   
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl2" onclick="downloadlink('4sec','2')"   style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 4 Sec</span>   
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl3" onclick="downloadlink('6sec','3')"    style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 6 Sec</span> 
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl4" onclick="downloadlink('8sec','4')"    style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 8 Sec</span> 
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl5" onclick="downloadlink('10sec','5')"    style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 10 Sec</span> 
+           </a>
+        </div>
+        <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">Main 10 Scillepictures</h5>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl6" onclick="downloadlink('104sec','6')"    style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+            <span class="text-orange-200 flex">MPD: 4 Sec</span>            </a>
+        </div>
+        <div  class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl7" onclick="downloadlink('106sec','7')"    style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 8 Sec</span> 
+           </a>
+        </div>
+        <div   class="ml-1 mt-1  flex-col bg">
+          <a href="" id="dowloadurl8" onclick="downloadlink('108sec','8')"    style="width: 170px;"  class="flex py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            <img  class="flex ml-1 w-6 h-6 mr-2"   src=" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEiUlEQVR4nO1Z228VRRxuEYHgpbTn7Ck+aLkIyOWNNyIPGG+JiYZoIYRLIiEmlDQoxGDSszuEFwmQSOp/YBCML75bEzU+oA/GQGwoCsEi4ckHVPCcM3vs+P1mZ7bbetrunp3ZHk73SzaB052Z7/fN7zazHR05cuTIkSNHjhw5cuTIkQqis+jyrY7rn3Jc/rXj+WNFj9/HbxXH43fx+7dFzz/rMP48vTvfbA0Chpfru2DgdRgtYj6/OOX6gY5+8ch8s08FZ6iyFob/EBrm8vGi6w/jt1cK5eqG3uPisaeYWN49JJ7G76/hOQNvuKPfh0d8T+/Ntx1NoeD6O+DifyjDfy+Wawdj7SgTiwtefe+kEPyvkuu/lAFlcyDjQZzLXXT5Fw4Tjyee433xBOb4XAlYc5j/sg2uxkFuP7nz/nns6KLmZxOdmOcjJcKfBVZ9zhxTKwBhFfO08+mMj87JPwvm9C93nxBdjlffT/MjR/xMwuDfD/Dckt7m8cP0Tvp1m4DM9irmm3H7mRAYHeYEPmcVgSjYiJPYgCWmOMSA3H1Z6mTCM4xSub5vsjrwLx2v9naxXF1HVYSqSZFV12PdQ/CCkfA91/9p5ZDoM82lIWSTo0qdlfr9jngUhn+FRmlbDC7bER43lFi/9Q5VVhvnMx2ywwtUH7a+WAx0MbECXL5TyfjHZwfFUqsLqvZWoFy9anWhBOj6QHSHYelxZnWxcCHEotWFEkL1JBN47pEg1hZC3P0deIC57G8K2jspSdpZAeUGi/zbqgJQVVK9yYjx0oiYf4sybViD0QkaXcAAesu1zdEDGXFOPyu6PJSajyM19wribLAVPYAOWMQNfK9G+A6n6lTlsTZwK7rQOGym7bUMcIQHDMBjq6lKNrmQNr7A/BcM07QO4hxsnCzbycKhj4ll2PHbKp4GLHG0DthwRJ0tbidqkopefY+6rblq8+5Ox6qt+eVVHZ0mpS313QmIqUsKKGiPXBYCSFsGlS2XYg+iczcN6ilXN1rklokAujwiGd6MPUgnDzqGWuSWjQA4Rqtzwj+xB+mWl+7sLHLLRIAeJp7UFyixB+lDTw+rbrLILRsPYLUtap2x2IOg1kXVA7xrkVsmAhQ8flzZ8knsQfrej0qIzS831gUAd3jzaPJmCKcpypqqfAza4mdbACS+o/ozHF23JRoM5d7UHyxKzH/RBkGbAhDn4HaZT6Atfr2pSSDCufCrDXmC4XCwIgBOhcHOq69Wnv9h85PBYPk5Ozxn+6OY/D2ZWQ0ciU0JQFyIExLdsTDmg+bntJETbMn1d+oraBNPSHyG/6d9YPiv4PxGasOngK7EvHo/XOtTqHwtvB9sAQEkF3BCqF6Q2T5pwpsvZNEHtDTaXoBuJp6Bgd+UWGVNo7/PJsBcYx8KkAEqRm/1ssqqBn9vKAC9q4/kNEcWXK2AdjHsKF0+Pn03Gwkw15iHDrMZNF2AtjNeYybDogK0rfEajQzUArS98RrR5BZJciL6W6Nk2VaYstvRp513fjr+J8JCMl4jFGEhGq9B8d72MZ8jR44crY7/ACSEnwNbKPyPAAAAAElFTkSuQmCC">
+           <span class="text-orange-200 flex">MPD: 10 Sec</span> 
+           </a>
+        </div>
+           <h5 class="mt-1 ml-2 w-48 font-thin text-orange-300">Lecteur MP4</h5>
+        <form action="/MP4600" method="post"  class="ml-1 mt-1  flex-col bg">
+          <input type="text" name="user" value="<%= user %>" hidden>
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            MP4: 600P
+           </button>
+        </form>
+        <form action="/MP4720" method="post"  class="ml-1 mt-1  flex-col bg">
+          <input type="text" name="user" value="<%= user %>" hidden>
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            MP4: 720P
+           </button>
+        </form>
+        <form action="/MP41080" method="post"  class="ml-1 mt-1  flex-col bg">
+          <input type="text" name="user" value="<%= user %>" hidden>
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+            MP4: 1080P
+           </button>
+        </form>
     </div>
     </div>
   </aside>
   <div class="flex-grow text-gray-800">
     <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
+      <h3 class="font-thin text-gray-700" id="textitle"  ondblclick="clears();">Université Badji Mokhtar-Annaba Departement Electronique</h3>
       <button class="block sm:hidden relative flex-shrink-0 p-2 mr-2 text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:bg-gray-100 focus:text-gray-800 rounded-full">
         <span class="sr-only">Menu</span>
           <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -55,6 +111,7 @@
           <span class="sr-only">User Menu</span>
           <div class="hidden md:flex md:flex-col md:items-end md:leading-tight">
             <span class="font-semibold">IPCameraFFmpeg</span>
+            <span class="font-thin"><%= user %></span>
            </div>
           <span class="h-12 w-12 ml-2 sm:ml-3 mr-2 bg-gray-100 rounded-full overflow-hidden">
             <img src="/images/insc.png" alt="user profile photo" class="h-full w-full object-cover">
@@ -72,7 +129,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
             </svg>
           </button>
-          <form action="/" method="get"  class="flex-1"> <input type="text" name="user"  hidden>
+          <form action="/getmenu" method="post" class="flex-1"> <input type="text" name="user" value="<%= user %>" hidden>
             <button class="relative p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-600 focus:bg-gray-100 focus:text-gray-600 rounded-full">
             <span class="sr-only">Log out</span>
             <svg aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
@@ -83,11 +140,12 @@
       </div>
     </header>
     <main class="flex-1 items-left  ml-40 mt-4 px-1 w-full h-fit">
-        <h1 class="text-gray-500 text-balance mb-2">Live tream MPD Dash:</h1>
+        <h1 class="text-gray-500 text-balance mb-2">Live tream MPD Dash:256x144</h1>
+        
         <div class="h-full max-h-80">
          <div class="grid grid-rows-3 grid-flow-col gap-1 w-4/6">
             <div id="scale256" style="height: 80vh;" class="row-start-1 row-span-4 bg-gray-200 shadow-md rounded-md h-90 px-1 py-2">
-            <video  data-dashjs-player=""  src="/output/scale1920/Convert_1714092199135.mpd" controls="true" style="width:100%;height:100%;border-radius: 8px 8px;"></video>
+            <video  data-dashjs-player="" autoplay src="/output/scale108sec/scale108sec.mpd" controls="true" style="width:100%;height:100%;border-radius: 8px 8px;"></video>
              <source src="/output/Dolphin_Boy.mp4" type="video/mp4"  >
             </video>
             </div>
@@ -96,6 +154,47 @@
     </main>
     </div>
    </body>
+   <style>
+    #textitle {
+      position: relative;
+      animation: myfirst 5s 2;
+      animation-direction: alternate;
+    }
+    
+    @keyframes myfirst {
+      0%   {color: red;  }
+      25%  {color: yellow;  }
+      50%  {color: blue; }
+      75%  {color: green; }
+      100% {color: red; }
+    }
+    
+       </style>
+      
    <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script>
   <script src="/javascripts/dash.all.min.js"></script>
+  <script>
+   function downloadlink(el,id){
+    var source="";
+    switch(el){
+      case "autoscale": source="autoscale/Dolphin.mpd";break;
+      case "2sec": source="scale2sec/scale2sec.mpd";break;
+      case "4sec": source="scale4sec/scale4sec.mpd";break;
+      case "6sec": source="scale6sec/scale6sec.mpd";break;
+      case "8sec": source="scale8sec/scale8sec.mpd";break;
+      case "10sec": source="scale10sec/scale10sec.mpd";break;
+      case "104sec": source="scale104sec/scale104sec.mpd";break;
+      case "106sec": source="scale106sec/scale106sec.mpd";break;
+      case "108sec": source="scale108sec/scale108sec.mpd";break;
+    }
+    const link="/downloadVideo/public@output@"+ source.replaceAll("/","@");
+    console.log(link);
+    const link2=`https://raw.githubusercontent.com/ibrahi2023/appFMPEG/main/public/output/${source}`;
+    document.getElementById(`dowloadurl${id}`).href=link;
+    document.getElementById("textitle").innerHTML=`<span class="text-orange-500">Copier URL Video:</span><span >${link2}</span>`
+    }
+   function clears(){
+    document.getElementById("textitle").innerHTML=`Université Badji Mokhtar-Annaba Departement Electronique`
+   }
+  </script>
   </html>

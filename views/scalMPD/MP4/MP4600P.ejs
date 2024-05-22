@@ -2,7 +2,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>SCALE256@144</title>
+  <title>MP4-720p-200k</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body class="flex bg-gray-100 min-h-screen">
@@ -140,20 +140,18 @@
       </div>
     </header>
     <main class="flex-1 items-left  ml-40 mt-4 px-1 w-full h-fit">
-        <h1 class="text-gray-500 text-balance mb-2">Live tream MPD Dash:ABR Roles</h1>
+        <h1 class="text-gray-500 text-balance mb-2">Video MP4:600P</h1>
         <div class="h-full max-h-80">
          <div class="grid grid-rows-3 grid-flow-col gap-1 w-4/6">
             <div id="scale256" style="height: 80vh;" class="row-start-1 row-span-4 bg-gray-200 shadow-md rounded-md h-90 px-1 py-2">
-            <!-- <video  data-dashjs-player="" autoplay src="https://dash.akamaized.net/akamai/bbb_30fps/bbb_30fps.mpd" controls="true" style="width:100%;height:100%;border-radius: 8px 8px;"></video> -->
-            <video id="video" 
-            width='480px' height='360px' controls autoplay
-            src="/output/HEVC/playList.m3u8" style="width:100%;height:100%;border-radius: 8px 8px;">
-     </video>
+                <video id="video"   autoplay src="/output/MP4/720p-200k.mp4" controls="true" style="width:100%;height:100%;border-radius: 8px 8px;"></video>
             </div>
             </div>
     </main>
     </div>
    </body>
+   <script src="/javascripts/hls.min.js"></script>
+ 
    <style>
 #textitle {
   position: relative;
@@ -170,13 +168,8 @@
 }
 
    </style>
-      <script src="/javascripts/hls.min.js"></script>
- 
- 
-      <!-- <script type="text/javascript" src="/javascripts/jsmpeg.min.js"></script> -->
-  <!-- <script src="/javascripts/dash.all.min.js"></script> -->
 <script>
-            if (Hls.isSupported()) {
+     if (Hls.isSupported()) {
               var video = document.getElementById('video');
               var hls = new Hls();
               hls.loadSource(video.src);
