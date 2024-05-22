@@ -21,26 +21,29 @@ app.get("/",(req,res)=>{
 app.get("/LivestreaMPD",(req,res)=>{
   res.render("LivestreaMPD",{message:"",user:"admin"});
 });
-app.get("/scal256@144",(req,res)=>{
-    res.render("scalMPD/scal256",{message:"",user:"admin"});
-  });
-  app.get("/scal720@480",(req,res)=>{
-    res.render("scalMPD/scal720",{message:"",user:"admin"});
-  });
-  app.get("/scal1190@1080",(req,res)=>{
-    res.render("scalMPD/scal1190",{message:"",user:"admin"});
-  });
-  app.get("/scaleAuto",(req,res)=>{
+  app.post("/scaleAuto",(req,res)=>{
     res.render("scalMPD/scaleAuto",{message:"",user:"admin"});
   });
-  app.get("/downloadVideo",(req,res)=>{
-    const filelink="public/output/autoscale/Dolphin.mpd"
-    res.download(filelink,(error)=>{
-      //console.log(error) 
-    })  
+  app.post("/MP4600",(req,res)=>{
+    const user=req.body.user;
+    res.render("scalMPD/MP4/MP4600P",{message:"",user:user});
   })
- 
+  app.post("/MP4720",(req,res)=>{
+    const user=req.body.user;
+    res.render("scalMPD/MP4/MP4720P",{message:"",user:user});
+  })
+  app.post("/MP41080",(req,res)=>{
+    const user=req.body.user;
+    res.render("scalMPD/MP4/MP41080P",{message:"",user:user});
+  })
+  app.get("/downloadVideo/:filelink",(req,res)=>{
+    const {filelink}=req.params;
+    res.download(filelink.replaceAll("@","/"),(error)=>{
+    //  console.log(error)
+    })
     
+ })
+  
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
