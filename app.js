@@ -18,6 +18,9 @@ app.get("/SelecteStream",(req,res)=>{
 app.get("/",(req,res)=>{
     res.render("SelecteStream",{message:"",user:"admin"});
   });
+  app.post("/getmenu",(req,res)=>{
+    res.render("SelecteStream",{message:"",user:"admin"});
+  });
 app.get("/LivestreaMPD",(req,res)=>{
   res.render("LivestreaMPD",{message:"",user:"admin"});
 });
