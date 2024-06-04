@@ -10,10 +10,10 @@
    <Representation id="1" mimeType="video/mp4" codecs="hvc1.1.6.L93.90" width="1280" height="720" frameRate="24000/999" sar="1:1" bandwidth="199480">
     <SegmentTemplate media="720p-200k-$Number$.m4s" initialization="720p-200k-init.mp4" timescale="24000" startNumber="1" duration="144000"/>
    </Representation>
-     <Representation id="3" mimeType="video/mp4" codecs="hvc1.1.6.L93.90" width="1280" height="720" frameRate="24000/999" sar="1:1" bandwidth="293136">
+     <Representation id="3" mimeType="video/mp4" codecs="hvc1.1.6.L93.90" width="1280" height="720" frameRate="24000/999" sar="1:1" bandwidth="203136">
     <SegmentTemplate media="720p-600k-$Number$.m4s" initialization="720p-600k-init.mp4" timescale="24000" startNumber="1" duration="144000"/>
    </Representation>
-    <Representation id="7" mimeType="video/mp4" codecs="hvc1.1.6.L120.90" width="1920" height="1080" frameRate="24000/999" sar="1:1" bandwidth="3260912">
+    <Representation id="7" mimeType="video/mp4" codecs="hvc1.1.6.L120.90" width="1920" height="1080" frameRate="24000/999" sar="1:1" bandwidth="260912">
     <SegmentTemplate media="1080p-4300k-$Number$.m4s" initialization="1080p-4300k-init.mp4" timescale="24000" startNumber="1" duration="144000"/>
    </Representation>
    </AdaptationSet>
