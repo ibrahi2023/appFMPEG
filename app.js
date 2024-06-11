@@ -39,6 +39,11 @@ app.get("/LivestreaMPD",(req,res)=>{
     const user=req.body.user;
     res.render("scalMPD/MP4/MP41080P",{message:"",user:user});
   })
+  app.post("/MP415000",(req,res)=>{
+    const user=req.body.user;
+    res.render("scalMPD/MP4/MP415000P",{message:"",user:user});
+  })
+ 
   app.get("/downloadVideo/:filelink",(req,res)=>{
     const {filelink}=req.params;
     res.download(filelink.replaceAll("@","/"),(error)=>{
