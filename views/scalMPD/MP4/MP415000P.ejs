@@ -10,19 +10,21 @@
     <a href="#" class="inline-flex items-center justify-self-start h-20 w-48 bg-purple-600 hover:bg-purple-500 focus:bg-purple-500">
       <span class="h-18 w-18  sm:ml-1 mr-2 bg-gray-100 rounded-full overflow-hidden">
         <img src="/images/ffmpeg.png" alt="user profile photo" class="h-20 w-20   object-cover">
-    </a> 
+    </a>
     <div id="Main" class="transform  xl:translate-x-0  ease-in-out transition duration-500 flex justify-start items-start h-full  w-full sm:w-48 bg-gray-800 flex-col">
-      <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500 w-full  px-2 ml-0 mt-0 mb-1 py-1">MPEG-DASH ARB </h4>
-      <button onclick="showMenu0(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-        <p class="text-sm leading-5">Dash Auto Scal </p>
+     <h4 class="font-thin text-orange-100 text-current  bg-blue-500 w-full  px-2 ml-0 mt-0 py-1">MPEG-DASH ARB </h4>
+     <div class="flex flex-col justify-start items-center px-2 border-b border-gray-600 w-full">
+      <button onclick="showMenu0(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4">
+        <p style="width:160px;padding:4px 4px ;padding-left:4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl ml-0  mt-0">Dash Auto Scal </p>
+        <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
         <svg id="icon0" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
+         <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg></span>
+      </button></div>
       <div id="menu0" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
         <form action="/scaleAuto" method="post"  class="ml-1 mt-1  flex-col bg">
           <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-orange-400 border border-orange-400 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
             MPD: Auto Scale 
            </button>
         </form>
@@ -45,13 +47,14 @@
            </a>
         </div>
         </div>
-    <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500  w-full  px-2 ml-0 mt-1 mb-3 py-1">Dash Profile Main</h4>
+    <h4 class="font-thin text-orange-100 text-current  bg-blue-500 w-full  px-2 ml-0 mt-0 py-1">Dash Profile Main</h4>
       <div class="flex flex-col justify-start items-center px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu1(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-          <p class="text-sm leading-5">Dash Profile Simple  </p>
-          <svg id="icon1" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile Simple  </p>
+          <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon1" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
+          </svg></span>
         </button>
         <div id="menu1" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -77,10 +80,11 @@
         <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
     
         <button onclick="showMenu2(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5">Dash Profile Full  </p>
-            <svg id="icon2" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile Full  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon2" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu2" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -104,13 +108,14 @@
         </div>
     
       </div>
-      <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500  w-full px-2 ml-0 mt-3 mb-3 py-1">Codec Profile Main10</h4>
+      <h4 class="font-thin text-orange-100 text-current  bg-blue-500  w-full px-2 ml-0 mt-0 mb-0 py-1">Codec Profile Main10</h4>
       <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu3(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5">Dash Profile live  </p>
-            <svg id="icon3" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile live  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon3" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu3" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -135,10 +140,11 @@
       </div>
       <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu4(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5 ">Dash Profile Simple  </p>
-            <svg id="icon4" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile Simple  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon4" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu4" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -163,10 +169,11 @@
       </div>
       <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu5(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5 ">Dash Profile Full  </p>
-            <svg id="icon5" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile Full  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon5" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu5" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -189,13 +196,14 @@
           </div>
         </div>
       </div>
-      <h4 class="font-thin text-orange-100 text-current animate-pulse bg-blue-500 w-full px-2 ml-0 mt-3 mb-3 py-1">Codec Profile Main12</h4>
+      <h4 class="font-thin text-orange-100 text-current  bg-blue-500 w-full px-2 ml-0 mt-0 mb-0 py-1">Codec Profile Main12</h4>
       <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu6(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5">Dash Profile live  </p>
-            <svg id="icon6" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile live  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon6" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu6" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -220,10 +228,11 @@
       </div>
       <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu7(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5 ">Dash Profile Simple  </p>
-            <svg id="icon7" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile Simple  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon7" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu7" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -248,10 +257,11 @@
       </div>
       <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
         <button onclick="showMenu8(true)" class="focus:outline-none focus:text-indigo-400 text-left  text-white flex justify-between items-center w-full py-1 space-x-4  ">
-            <p class="text-sm leading-5 ">Dash Profile Full  </p>
-            <svg id="icon8" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="width: 160px;padding: 4px 4px;padding-right: 4px;" class="text-sm leading-5 bg-gray-700 border  border-gray-700 rounded-xl">Dash Profile Full  </p>
+            <span class="border border-gray-700 rounded-full bg-gray-700 p-1">
+ <svg id="icon8" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+            </svg></span>
           </button>
         <div id="menu8" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
@@ -274,46 +284,47 @@
           </div>
         </div>
     </div>
-       <button onclick="showMenu9(true)" class="focus:outline-none bg-blue-500   text-left  text-white flex justify-between items-center w-full py-1 space-x-1 px-2">
-        <p class="text-sm leading-5 animate-pulse ">Video Decompresed </p>
-        <svg id="icon9" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <button onclick="showMenu9(true)" class="focus:outline-none bg-green-500   text-left  text-white flex justify-between items-center w-full py-1 space-x-1 px-2">
+        <p class="text-sm leading-5">Video Decompresed </p>
+        <span class="border border-green-600 rounded-full bg-green-600 p-1">
+ <svg id="icon9" class="transform" width="21" height="21" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M18 15L12 9L6 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+        </svg></span>
       </button>
 
         <div class="flex flex-col justify-start items-center   px-2 border-b border-gray-600 w-full  ">
          <div id="menu9" class="flex justify-start  flex-col w-full md:w-auto items-start pb-1 ">
           <div   class="ml-0 mt-1  flex-col bg">
-        <form action="/MP4600" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-            200kbps.Decomp
-           </button>
-        </form>
-        <form action="/MP4720" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-gray-500 text-white">
-            600kbps.Decomp
-           </button>
-        </form>
-        <form action="/MP41080" method="post"  class="ml-1 mt-1  flex-col bg">
-          <input type="text" name="user" value="<%= user %>" hidden>
-          <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-gray-500 text-white">
-            4300kbps.Decomp
-           </button>
-        </form>
-        <form action="/MP415000" method="post"  class="ml-1 mt-1  flex-col bg">
-            <input type="text" name="user" value="<%= user %>" hidden>
-            <button   style="width: 170px;" type="submit" class="py-1 bg-orange-400 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
-              15000kbps.Decomp
-             </button>
-          </form>
-  
-</div>
+            <form action="/MP4600" method="post"  class="ml-1 mt-1  flex-col bg">
+              <input type="text" name="user" value="<%= user %>" hidden>
+              <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+                200kbps.decomp
+               </button>
+            </form>
+            <form action="/MP4720" method="post"  class="ml-1 mt-1  flex-col bg">
+              <input type="text" name="user" value="<%= user %>" hidden>
+              <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+                600kbps.decomp
+               </button>
+            </form>
+            <form action="/MP41080" method="post"  class="ml-1 mt-1  flex-col bg">
+              <input type="text" name="user" value="<%= user %>" hidden>
+              <button   style="width: 170px;" type="submit" class="py-1 bg-gray-700 border border-gray-700 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+                4300kbps.decomp
+               </button>
+            </form>
+            <form action="/MP415000" method="post"  class="ml-1 mt-1  flex-col bg">
+              <input type="text" name="user" value="<%= user %>" hidden>
+              <button   style="width: 170px;" type="submit" class="py-1 bg-orange-400 border border-orange-400 text-left pl-4  shadow-xl rounded-md px-2 hover:bg-gray-500 focus:bg-orange-500 text-white">
+                15000kbps.Decomp
+               </button>  
+            </form>
+    
+           </div>
+          
       </div>
     </div>
   </aside>
-
   <div class="flex-grow text-gray-800">
     <header class="flex items-center h-20 px-6 sm:px-10 bg-white">
       <h3 class="font-thin text-gray-700" id="textitle"  ondblclick="clears();"></h3>
